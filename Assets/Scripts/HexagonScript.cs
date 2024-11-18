@@ -25,7 +25,7 @@ public class HexagonScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            rb2d.AddTorque(10f, ForceMode2D.Force);
+            rb2d.AddTorque(1000f, ForceMode2D.Force);
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {

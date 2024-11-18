@@ -2,31 +2,26 @@ using UnityEngine;
 
 public class ArrowMonoBehaviourScript : MonoBehaviour
 {
-    private object rotAnchor;
+    [SerializeField]
+    private Transform rotAnchor;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float InputY = Input.GetAxis("Vertical");
-        float Angle = transform.eulerAngles.z;
+        float dy = Input.GetAxis("Vertical");
+        float angle = transform.eulerAngles.z;
 
-        if (Angle > 180)
+        if (angle > 180)
         {
-            Angle -= 360;
+            angle -= 360;
         }
-
-        Debug.Log(Angle + InputY);
-
-        /*if (Angle + InputY > -15 && Angle + InputY < 60)
+        if (-15 < angle + dy && angle + dy < 60)
         {
-            transform.RotateAround(rotAnchor.position, Vector3.forward, InputY);
-        }*/
-
+            transform.RotateAround(rotAnchor.position, Vector3.forward, dy);
+        }
     }
 }
