@@ -6,6 +6,8 @@ public class ForceScript : MonoBehaviour
 {
     private Image indicator;
     private InputAction moveAction;
+
+    public float forceFactor => indicator.fillAmount;
     
     void Start()
     {
@@ -17,6 +19,6 @@ public class ForceScript : MonoBehaviour
     {
         Vector2 moveValue = moveAction.ReadValue<Vector2>();
         float delta = moveValue.x * Time.deltaTime;
-        indicator.fillAmount = Mathf.Clamp(indicator.fillAmount + delta, 0, 1);
+        indicator.fillAmount = Mathf.Clamp(indicator.fillAmount + delta, 0.1f, 1.0f);
     }
 }
